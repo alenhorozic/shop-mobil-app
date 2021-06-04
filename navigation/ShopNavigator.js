@@ -1,6 +1,7 @@
 import {createStackNavigator, createAppContainer} from '@react-navigation/stack'
 import {Platform} from 'react-native';
 import ProductOverviewScreen from '../screens/shop/ProductOverviewScreen';
+import ProductDetailScreen from '../screens/shop/ProductDetailScreen';
 import Colors from '../constans/Colors';
 import React from 'react';
 
@@ -19,6 +20,7 @@ const Stack = createStackNavigator();
         return (
           <Stack.Navigator screenOptions={screenOptionStyle}>
             <Stack.Screen name="All Products" component={ProductOverviewScreen} />
+            <Stack.Screen name="ProductDetails" component={ProductDetailScreen}  />
           </Stack.Navigator>
         );
       };
