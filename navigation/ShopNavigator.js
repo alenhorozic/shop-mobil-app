@@ -1,28 +1,35 @@
-import {createStackNavigator, createAppContainer} from '@react-navigation/stack'
-import {Platform} from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack'
 import ProductOverviewScreen from '../screens/shop/ProductOverviewScreen';
 import ProductDetailScreen from '../screens/shop/ProductDetailScreen';
-import Colors from '../constans/Colors';
+import CartScreen from '../screens/shop/CartScreen';
+import OrderScreen from '../screens/shop/OrderScreen';
 import React from 'react';
 
 const Stack = createStackNavigator();
 
-    const screenOptionStyle = {
-    defaultNavigationOptions: {
-        headerStyle:{
-            backgroundColor:Platform.OS === 'android' ? Colors.primary : 'red',
-        },
-        headerTintColor: Platform.OS === 'android' ? 'red' : Colors.primary,
-    }
-    };
-
     const ProductsNavigator = () => {
         return (
-          <Stack.Navigator screenOptions={screenOptionStyle}>
+          <Stack.Navigator >
             <Stack.Screen name="All Products" component={ProductOverviewScreen} />
             <Stack.Screen name="ProductDetails" component={ProductDetailScreen}  />
           </Stack.Navigator>
         );
       };
 
-export {ProductsNavigator};
+      const CartStackNavigator = () => {
+        return (
+          <Stack.Navigator >
+            <Stack.Screen name="Cart" component={CartScreen} />
+          </Stack.Navigator>
+        );
+      };
+
+      const OrderStackNavigator = () => {
+        return (
+          <Stack.Navigator >
+            <Stack.Screen name="Order" component={OrderScreen} />
+          </Stack.Navigator>
+        );
+      };
+
+export {ProductsNavigator,CartStackNavigator,OrderStackNavigator};

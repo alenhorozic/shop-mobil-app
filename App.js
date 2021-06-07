@@ -8,6 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import AppLoading from 'expo-app-loading';
 import * as Font from "expo-font";
 import cartReducer from './store/reducers/cart';
+import BottomTabNavigator from './navigation/TabNavigator';
 
 const rootReducer = combineReducers({
   products: productsReducer,
@@ -30,7 +31,7 @@ export default function App () {
   return (
     <Provider store={store}>
     <NavigationContainer>
-        <ProductsNavigator />
+        <BottomTabNavigator />
     </NavigationContainer>
     </Provider>
   );
