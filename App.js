@@ -8,11 +8,14 @@ import { NavigationContainer } from "@react-navigation/native";
 import AppLoading from 'expo-app-loading';
 import * as Font from "expo-font";
 import cartReducer from './store/reducers/cart';
-import BottomTabNavigator from './navigation/TabNavigator';
+import ordersReducer from './store/reducers/orders';
+// import BottomTabNavigator from './navigation/TabNavigator';
+import DrawerNavigator from './navigation/DrawerNavigator';
 
 const rootReducer = combineReducers({
   products: productsReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  orders: ordersReducer
 });
 
 const getFonts = () => {
@@ -31,7 +34,7 @@ export default function App () {
   return (
     <Provider store={store}>
     <NavigationContainer>
-        <BottomTabNavigator />
+        <DrawerNavigator />
     </NavigationContainer>
     </Provider>
   );

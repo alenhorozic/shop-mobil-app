@@ -1,7 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { ProductsNavigator, CartStackNavigator, OrderStackNavigator } from "./ShopNavigator";
-import Colors from '../constans/Colors';
 import Icon from '@expo/vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -26,11 +25,11 @@ const BottomTabNavigator = () => {
       },
     })}
     tabBarOptions={{
-      activeTintColor: Colors.primary,
-      inactiveTintColor: Colors.accent,
-      activeBackgroundColor: Colors.accent,
+      activeTintColor:'white',
+      inactiveTintColor: 'black',
+      activeBackgroundColor: 'black',
            style: {
-                 backgroundColor: Colors.primary,
+                 backgroundColor: 'white',
            }
     }}
     

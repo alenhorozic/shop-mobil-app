@@ -7,11 +7,19 @@ import React from 'react';
 
 const Stack = createStackNavigator();
 
+const screenOptionStyle = {
+  headerStyle: {
+    backgroundColor: "white",
+  },
+  headerTintColor: "black",
+  headerBackTitle: "Back",
+};
+
     const ProductsNavigator = () => {
         return (
-          <Stack.Navigator >
+          <Stack.Navigator screenOptions={screenOptionStyle}>
             <Stack.Screen name="All Products" component={ProductOverviewScreen} />
-            <Stack.Screen name="ProductDetails" component={ProductDetailScreen}  />
+            <Stack.Screen name="ProductDetails" component={ProductDetailScreen} />
           </Stack.Navigator>
         );
       };
