@@ -9,7 +9,7 @@ const OrderItem = props => {
   return (
     <View style={styles.orderItem}>
       <View style={styles.summary}>
-        <Text style={styles.totalAmount}>$ {props.amount}</Text>
+        <Text style={styles.totalAmount}>${props.amount.toFixed(2)}</Text>
         <Text style={styles.date}>{props.date}</Text>
       </View>
       <Button
@@ -19,7 +19,7 @@ const OrderItem = props => {
           setShowDetails(prevState => !prevState);
         }}
       />
-      {showDetails && (
+      {showDetails && 
         <View style={styles.detailItems}>
           {props.items.map(cartItem => (
             <CartItem
@@ -30,7 +30,7 @@ const OrderItem = props => {
             />
           ))}
         </View>
-      )}
+      }
     </View>
   );
 };
@@ -62,6 +62,9 @@ const styles = StyleSheet.create({
     data: {
         fontSize:16,
         color: "#888",
+    },
+    detailItems: {
+      width: '100%'
     }
   });
   
