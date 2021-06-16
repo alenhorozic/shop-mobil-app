@@ -6,8 +6,10 @@ import OrderScreen from "../screens/shop/OrderScreen";
 import React from "react";
 import UserProductsScreen from "../screens/user/UserProductScreen";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
-
 import HeaderButton from "../components/UI/HeaderButton";
+
+import EditProductScreen from '../screens/user/EditProductScreen';
+import AddProductScreen from '../screens/user/AddProductScreen';
 
 const Stack = createStackNavigator();
 
@@ -100,7 +102,7 @@ const OrderStackNavigator = (navData) => {
 
 const AdminStackNavigator = (navData) => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={screenOptionStyle}>
       <Stack.Screen
         name="Yours Products On Sale"
         component={UserProductsScreen}
@@ -120,6 +122,38 @@ const AdminStackNavigator = (navData) => {
               />
             </HeaderButtons>
           ),
+          headerRight: () => (
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+              <Item
+                title="Add"
+                iconName={Platform.OS === "android" ? "md-create" : "ios-create"}
+                onPress={() => {
+                  //navigera till add new not edit
+                  navData.navigation.navigate('Add');
+                }}
+              />
+            </HeaderButtons>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Edit"
+        component={EditProductScreen}
+        options={{
+          title: "Edit",
+          headerStyle: {
+            backgroundColor: "#fff",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="Add"
+        component={AddProductScreen}
+        options={{
+          title: "Add",
+          headerStyle: {
+            backgroundColor: "#fff",
+          },
         }}
       />
     </Stack.Navigator>
