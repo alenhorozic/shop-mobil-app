@@ -8,11 +8,14 @@ import {
   Button,
 } from "react-native";
 import Colors from "../../constans/Colors";
-import {useSelector} from 'react-redux';
+import {useSelector,useDispatch} from 'react-redux';
+import * as productsActions from "../../store/actions/products";
 
 const EditProductScreen = (props) => {
     const prodId = props.route.params.productId;
     const editedProduct = useSelector(state =>state.products.userProducts.find(prod=>prod.id === prodId));
+
+    const dispatch = useDispatch();
 
     const [title, setTitle] = useState(editedProduct.title);
     const [imageUrl, setImageUrl] = useState(editedProduct.imageUrl);
@@ -20,8 +23,10 @@ const EditProductScreen = (props) => {
     const [description, setDescription] = useState(editedProduct.description);
 
     const submitHandler = useCallback(() => {
-      console.log('Submitting the form !!!!!!!!')
-    }, []);
+      dispatch(
+        productsActions.updateProduct(prodId, title, imageUrl, description, parseFloat(price))
+      );
+    }, [dispatch, prodId, title,  imageUrl, description, price]);
 
     useEffect(() => {
       props.navigation.setParams({submit:submitHandler});

@@ -6,25 +6,25 @@ export const deleteProduct = (productId) => {
   return { type: DELETE_PRODUCT, pid: productId };
 };
 
-export const createProduct = (title, description, imageUrl, price) => {
+export const createProduct = (title, imageUrl, description, price) => {
   return {
     type: CREATE_PRODUCT,
     productData: {
         title: title,
-        description: description,
         imageUrl: imageUrl,
+        description: description,
         price: price,
     }};
 };
 
-export const updateProduct = (id, title, description, imageUrl, price) => {
-    return {
-      type: UPDATE_PRODUCT,
-      pid:id,
-      productData: {
-          title: title,
-          description: description,
-          imageUrl: imageUrl,
-          price: price,
-      }};
-  };
+export const updateProduct = ( id,title, imageUrl,description, price) => {
+  return {
+    type: UPDATE_PRODUCT,
+    pid: id,
+    productData: {
+        title: title,
+        imageUrl: imageUrl,
+        description: description,
+        price: price,
+    }};
+};
