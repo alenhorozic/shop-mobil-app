@@ -21,7 +21,7 @@ const EditProductScreen = (props) => {
 
   const [title, setTitle] = useState(editedProduct.title);
   const [imageUrl, setImageUrl] = useState(editedProduct.imageUrl);
-  const [price, setPrice] = useState(editedProduct.price);
+  const [price, setPrice] = useState(editedProduct.price+' ');
   const [description, setDescription] = useState(editedProduct.description);
 
   const submitHandler = useCallback(() => {
@@ -31,7 +31,7 @@ const EditProductScreen = (props) => {
         title,
         imageUrl,
         description,
-        parseFloat(price.replace(',','.'))
+        parseFloat(price.replace(/,/g, '.'))
       )
     );
     props.navigation.goBack();
@@ -51,6 +51,8 @@ const EditProductScreen = (props) => {
             value={title}
             onChangeText={(text) => setTitle(text)}
             keyboardType='default'
+            autoCapitalize='sentences'
+            autoCorrect
           />
         </View>
         <View style={styles.formControl}>
