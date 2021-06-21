@@ -22,8 +22,9 @@ const AddProductScreen = (props) => {
 
     const submitHandler = useCallback(() => {
       dispatch(
-        productsActions.createProduct( title, imageUrl, description, parseFloat(price))
+        productsActions.createProduct( title, imageUrl, description, parseFloat(price.replace(',','.')))
       );
+      props.navigation.goBack();
     }, [dispatch, title,  imageUrl, description, price]);
 
     useEffect(() => {

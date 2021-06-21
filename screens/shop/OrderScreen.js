@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { StyleSheet, FlatList } from "react-native";
 import { useSelector } from "react-redux";
 import OrderItem from "../../components/shop/OrderItem";
 

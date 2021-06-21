@@ -5,7 +5,6 @@ import {
   FlatList,
   Button,
   StyleSheet,
-  ScrollView,
   SafeAreaView
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
